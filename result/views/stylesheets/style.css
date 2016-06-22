@@ -64,7 +64,7 @@ body{
   vertical-align:middle;
   font-size:40px;
   font-weight: 600;
-  width: 450px;
+  width: 700px;
   height: 200px;
 }
 #choice a{
@@ -86,14 +86,15 @@ body{
 
 #choice .choice .label{
   text-transform: uppercase;
+  word-wrap: break-word;
 }
 
-#choice .choice.dogs{
+#choice .choice.option-b{
   color: #00cbca;
   float: right;
 }
 
-#choice .choice.cats{
+#choice .choice.option-a{
   color: #2196f3;
   float: left;
 }

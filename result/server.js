@@ -11,10 +11,14 @@ var express = require('express'),
 io.set('transports', ['polling']);
 
 var port = process.env.PORT || 4000;
+var options = {
+  optionA : process.env.OPTION_A || "Cats",
+  optionB : process.env.OPTION_B || "Dogs"
+};
 
 io.sockets.on('connection', function (socket) {
 
-  socket.emit('message', { text : 'Welcome!' });
+  socket.emit('message', { text : 'Welcome!' , options: options});
 
   socket.on('subscribe', function (data) {
     socket.join(data.channel);
@@ -39,6 +43,7 @@ async.retry(
     getVotes(client);
   }
 );
+
 
 function getVotes(client) {
   client.query('SELECT vote, COUNT(id) AS count FROM votes GROUP BY vote', [], function(err, result) {
@@ -79,10 +84,6 @@ app.use(express.static(__dirname + '/views'));
 
 app.get('/', function (req, res) {
   res.sendFile(path.resolve(__dirname + '/views/index.html'));
-});
-
-app.get('/test', function (req, res) {
-  res.json({"hello":"world"});
 });
 
 
