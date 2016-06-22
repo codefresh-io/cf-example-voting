@@ -2,7 +2,6 @@ Instavote
 =========
 
 
-
 Getting started
 ---------------
 
