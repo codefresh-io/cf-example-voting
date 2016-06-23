@@ -33,7 +33,7 @@ app.controller('statsCtrl', function ($scope) {
     };
     socket.on('message', function (data) {
         console.log(data.options);
-        document.title = data.options.optionA + ' vs ' + data.options.optionA + ' - Results';
+        document.title = data.options.optionA + ' vs ' + data.options.optionB + ' - Results';
         $scope.options = data.options;
         init();
     });
